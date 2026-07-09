@@ -1,0 +1,221 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #eef2f7;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #222;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #1e293b;
+}
+
+/* ---------------- Toolbar ---------------- */
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.language-select {
+  padding: 10px;
+  width: 180px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.toolbar-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.toolbar button,
+.upload-btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+.toolbar button:hover,
+.upload-btn:hover {
+  background: #1d4ed8;
+}
+
+/* ---------------- Main Workspace ---------------- */
+
+.workspace {
+  display: grid;
+  grid-template-columns: 250px 1fr 420px;
+  gap: 20px;
+  align-items: start;
+}
+
+/* ---------------- History ---------------- */
+
+.history-sidebar {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  height: 620px;
+  overflow-y: auto;
+  box-shadow: 0 2px 10px rgba(0,0,0,.08);
+}
+
+.history-sidebar h2 {
+  margin-bottom: 15px;
+}
+
+.history-card {
+  padding: 12px;
+  border-radius: 10px;
+  background: #f7f7f7;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.history-card:hover {
+  background: #dbeafe;
+}
+
+/* ---------------- Editor ---------------- */
+
+.editor-section {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,.08);
+}
+
+/* ---------------- Review ---------------- */
+
+.review-section {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  height: 620px;
+  overflow-y: auto;
+  box-shadow: 0 2px 10px rgba(0,0,0,.08);
+}
+
+.review-section h2 {
+  margin-bottom: 15px;
+}
+
+.markdown {
+  line-height: 1.7;
+}
+
+.markdown pre {
+  background: #1e293b;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.markdown code {
+  background: #ececec;
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width:1200px) {
+
+.workspace{
+grid-template-columns:1fr;
+}
+
+.history-sidebar,
+.review-section{
+height:auto;
+}
+
+}
+
+/* ---------- DARK MODE ---------- */
+
+body.dark {
+  background: #0f172a;
+  color: white;
+}
+
+body.dark .toolbar,
+body.dark .history-sidebar,
+body.dark .review-section,
+body.dark .editor-section {
+  background: #1e293b;
+  color: white;
+}
+
+body.dark .history-card {
+  background: #334155;
+}
+
+body.dark .history-card:hover {
+  background: #475569;
+}
+
+body.dark button {
+  background: #2563eb;
+}
+
+body.dark h1,
+body.dark h2 {
+  color: white;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: white;
+  padding: 18px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,.1);
+}
+
+body.dark .card {
+  background: #1e293b;
+  color: white;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 24px;
+  font-weight: bold;
+}
