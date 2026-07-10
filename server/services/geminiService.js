@@ -7,7 +7,7 @@ const ai = new GoogleGenAI({
 const reviewCode = async (code, language) => {
   try {
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
+      model: "gemini-2.0-flash",
       contents: `
 You are a Senior Software Engineer.
 
