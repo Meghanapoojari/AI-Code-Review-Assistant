@@ -1,14 +1,24 @@
-import axios from "axios";
+const express = require("express");
+const cors = require("cors");
+require("dotenv").config();
 
-const API = axios.create({
-  baseURL: "https://ai-code-review-assistant-8btc.onrender.com/api",
+const healthRoutes = require("./routes/healthRoutes");
+const reviewRoutes = require("./routes/reviewRoutes");
+
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+app.use("/api/health", healthRoutes);
+app.use("/api/review", reviewRoutes);
+
+app.get("/", (req, res) => {
+  res.send("🚀 AI Code Review Assistant Backend is Running!");
 });
 
-export const reviewCode = async (code, language) => {
-  const response = await API.post("/review", {
-    code,
-    language,
-  });
+const PORT = process.env.PORT || 5000;
 
-  return response.data;
-};
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
